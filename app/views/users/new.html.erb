@@ -1,0 +1,8 @@
+<h2>ユーザ新規登録画面</h2>
+<%= form_tag("/users/create") do %>
+    <p>ユーザ名</p>
+    <input type="text" name="name">
+    <p>メールアドレス</p>
+    <input type="text" name="email">
+    <input type="submit" value="投稿">
+<% end %>
