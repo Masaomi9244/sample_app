@@ -13,10 +13,13 @@ Rails.application.routes.draw do
   ###############
   ###  ユーザ  ###
   ###############
+  get  'login'              => 'users#login_form'
   get  'users/index'        => 'users#index'
   get  'users/:id/show'     => 'users#show'
   get  'users/:id/edit'     => 'users#edit'
   get  'users/signup'       => 'users#new'
+  post 'login'              => 'users#login'
+  post 'logout'             => 'users#logout'
   post 'users/create'       => 'users#create'
   post 'users/:id/update'   => 'users#update'
   post 'users/:id/destroy'  => 'users#destroy'

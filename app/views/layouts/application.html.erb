@@ -12,12 +12,23 @@
 
   <body>
   <header>
-    <%= link_to("ついったー", "/") %>
-    <%= link_to("ついったーとは", "/about") %>
-    <%= link_to("投稿一覧", "/posts/index") %>
-    <%= link_to("新規投稿", "/posts/new") %>
-    <%= link_to("ユーザ一覧", "/users/index") %>
-    <%= link_to("ユーザ新規登録", "/users/signup") %>
+    <% if @current_user %>
+      <%= link_to("TweetApp", "/posts/index") %>
+    <% else %>
+      <%= link_to("TweetApp", "/") %>
+    <% end %>
+    <% if @current_user %>
+      <%= link_to("投稿一覧", "/posts/index") %>
+      <%= link_to("新規投稿", "/posts/new") %>
+      <%= link_to("ユーザ一覧", "/users/index") %>
+      <%= link_to("ユーザ新規登録", "/users/signup") %>
+      <%= link_to(@current_user.name, "/users/#{@current_user.id}/show") %>
+      <%= link_to("ログアウト", "/logout",{method: "post"}) %>
+    <% else %>
+      <%= link_to("ついったー", "/") %>
+      <%= link_to("ついったーとは", "/about") %>
+      <%= link_to("ログイン", "/login") %>
+    <% end %>
   </header>
     <% if flash[:notice] %>
       <div><%= flash[:notice] %></div>
