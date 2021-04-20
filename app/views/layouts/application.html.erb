@@ -13,20 +13,19 @@
   <body>
   <header>
     <% if @current_user %>
-      <%= link_to("TweetApp", "/posts/index") %>
+      <%= link_to("ついったー", "/posts/index") %>
     <% else %>
-      <%= link_to("TweetApp", "/") %>
+      <%= link_to("ついったー", "/") %>
     <% end %>
     <% if @current_user %>
       <%= link_to("投稿一覧", "/posts/index") %>
       <%= link_to("新規投稿", "/posts/new") %>
       <%= link_to("ユーザ一覧", "/users/index") %>
-      <%= link_to("ユーザ新規登録", "/users/signup") %>
       <%= link_to(@current_user.name, "/users/#{@current_user.id}/show") %>
       <%= link_to("ログアウト", "/logout",{method: "post"}) %>
     <% else %>
-      <%= link_to("ついったー", "/") %>
       <%= link_to("ついったーとは", "/about") %>
+      <%= link_to("ユーザ新規登録", "/users/signup") %>
       <%= link_to("ログイン", "/login") %>
     <% end %>
   </header>

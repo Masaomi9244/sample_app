@@ -1,5 +1,11 @@
-<h2><%= "idが#{@user.id}のユーザ詳細ページ" %></h2>
-<div><%= @user.name %></div>
-<div><%= @user.email %></div>
-<div><%= link_to("編集", "/users/#{@user.id}/edit") %></div>
-<div><%= link_to("削除", "/users/#{@user.id}/destroy", {method: "post"}) %></div>
+<h2><%= "#{@user.name}さんの詳細ページ" %></h2>
+<div><%= "ユーザ名:#{@user.name}" %></div>
+<div><%= "メールアドレス:#{@user.email}" %></div>
+  <%= link_to("編集", "/users/#{@user.id}/edit") %>
+  <%= link_to("削除", "/users/#{@user.id}/destroy", {method: "post"}) %>
+<p><%= "#{@user.name}の投稿一覧" %></p>
+<div>
+  <% @user.posts.each do |post| %>
+    <div><%= post.content %></div>
+  <% end %>
+</div>
