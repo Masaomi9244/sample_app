@@ -1,11 +1,13 @@
 class PostsController < ApplicationController
+before_action :ensure_correct_user, { only: [:edit, :update, :destroy] }
+
   def index
     @posts = Post.all.order(created_at: :desc)
   end
 
   def show
-    # get 'posts/:id' => 'posts#show'の「:id」の部分と同じidの投稿情報を代入
     @post = Post.find_by(id: params[:id])
+    @user = @post.user
   end
 
   def new
@@ -13,7 +15,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(content: params[:content])
+    @post = Post.new(
+      content: params[:content],
+      user_id: @current_user.id
+    )
     if @post.save
       flash[:notice] = "投稿が完了しました"
       redirect_to("/posts/index")
@@ -44,5 +49,13 @@ class PostsController < ApplicationController
     @post.save
     flash[:notice] = "投稿を削除しました"
     redirect_to("/posts/index")
+  end
+
+  def ensure_correct_user
+    @post = Post.find_by(id: params[:id])
+    if @post.user_id != @current_user.id
+      flash[:notice] = "権限がありません"
+      redirect_to("/posts/index")
+    end
   end
 end
