@@ -1,15 +1,14 @@
 <h2><%= "#{@user.name}さんの詳細ページ" %></h2>
 <div><%= "ユーザ名:#{@user.name}" %></div>
 <div><%= "メールアドレス:#{@user.email}" %></div>
-<ul class="user-tabs">
+<ul>
   <li><%= link_to("投稿", "/users/#{@user.id}/show") %></li>
   <li><%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>
 </ul>
 <%= link_to("編集", "/users/#{@user.id}/edit") %>
 <%= link_to("削除", "/users/#{@user.id}/destroy", {method: "post"}) %>
-<p><%= "#{@user.name}の投稿一覧" %></p>
-<div>
-  <% @user.posts.each do |post| %>
-    <div><%= post.content %></div>
-  <% end %>
-</div>
+<p><%= "#{@user.name}のいいね一覧" %></p>
+<% @likes.each do |like| %>
+  <% post = Post.find_by(id: like.post_id) %>  
+  <div><%= post.content %></div>
+<% end %>
