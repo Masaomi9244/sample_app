@@ -18,11 +18,18 @@ Rails.application.routes.draw do
   get  'users/:id/show'     => 'users#show'
   get  'users/:id/edit'     => 'users#edit'
   get  'users/signup'       => 'users#new'
+  get  'users/:id/likes'    => 'users#likes'
   post 'login'              => 'users#login'
   post 'logout'             => 'users#logout'
   post 'users/create'       => 'users#create'
   post 'users/:id/update'   => 'users#update'
   post 'users/:id/destroy'  => 'users#destroy'
+
+  ###############
+  ###  いいね  ###
+  ###############
+  post 'likes/:post_id/create'  => 'likes#create'
+  post 'likes/:post_id/destroy' => 'likes#destroy'
 
   ###############
   ###  その他  ###
