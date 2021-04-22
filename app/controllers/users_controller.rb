@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
     def login_form
     end
-    
+
     def index
         @users = User.all.order(created_at: :desc)
     end
