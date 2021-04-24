@@ -35,5 +35,4 @@ Rails.application.routes.draw do
   ###  その他  ###
   ###############
   get "/"     => 'home#top'
-  get "about" => 'home#about'
 end
