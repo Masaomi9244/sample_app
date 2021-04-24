@@ -5,8 +5,10 @@
   <li><%= link_to("投稿", "/users/#{@user.id}/show") %></li>
   <li><%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>
 </ul>
-<%= link_to("編集", "/users/#{@user.id}/edit") %>
-<%= link_to("削除", "/users/#{@user.id}/destroy", {method: "post"}) %>
+<% if @current_user.id == @user.id %>
+  <%= link_to("編集", "/users/#{@user.id}/edit") %>
+  <%= link_to("削除", "/users/#{@user.id}/destroy", {method: "post"}) %>
+<% end %>
 <p><%= "#{@user.name}の投稿一覧" %></p>
 <div>
   <% @user.posts.each do |post| %>
