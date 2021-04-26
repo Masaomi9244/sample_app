@@ -1,3 +1,59 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+//ーーーーーーーーーーーーーーーーーー新規登録画面ーーーーーーーーーーーーーーーーーーーーー
+.title {
+  font-size: 2.5rem;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  margin-top: 7rem;
+}
+
+.form-wrapper {
+  margin-top:  2rem;
+}
+
+.form-container {
+  margin-bottom: 2.5rem;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.name-label {
+  margin-right: 13.3rem;
+}
+
+.mail-label {
+  margin-right: 10.5rem;
+}
+
+.password-label {
+  margin-right: 12.2rem;
+}
+
+.input-form {
+  margin-left: 3rem;
+}
+
+input {
+  width: 20rem;
+}
+
+button {
+  padding-top: 0.8rem !important;
+  padding-bottom: 0.8rem !important;
+  padding-left: 8.8rem !important;
+  padding-right: 8.8rem !important;
+  border-radius: 1.8rem !important;
+  margin-left: 100rem;
+}
+
+.submit-btn {
+  margin-left: 3rem;
+}
+
+.submit-label {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
