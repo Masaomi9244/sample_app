@@ -1,5 +1,5 @@
 //ーーーーーーーーーーーーーーーーーー新規登録画面ーーーーーーーーーーーーーーーーーーーーー
-.title {
+.new-title {
   font-size: 2.5rem;
   font-weight: bolder;
   display: flex;
@@ -7,32 +7,32 @@
   margin-top: 7rem;
 }
 
-.form-wrapper {
+.new-form-wrapper {
   margin-top:  2rem;
 }
 
-.form-container {
+.new-form-container {
   margin-bottom: 2.5rem;
 }
 
-.center {
+.new-center {
   display: flex;
   justify-content: center;
 }
 
-.name-label {
+.new-name-label {
   margin-right: 13.3rem;
 }
 
-.mail-label {
+.new-mail-label {
   margin-right: 10.5rem;
 }
 
-.password-label {
+.new-password-label {
   margin-right: 12.2rem;
 }
 
-.input-form {
+.new-input-form {
   margin-left: 3rem;
 }
 
@@ -40,20 +40,19 @@ input {
   width: 20rem;
 }
 
-button {
+.new-btn {
   padding-top: 0.8rem !important;
   padding-bottom: 0.8rem !important;
   padding-left: 8.8rem !important;
   padding-right: 8.8rem !important;
   border-radius: 1.8rem !important;
-  margin-left: 100rem;
 }
 
-.submit-btn {
+.new-btn-container {
   margin-left: 3rem;
 }
 
-.submit-label {
+.new-submit-label {
   font-size: 1.2rem;
   font-weight: bold;
 }
