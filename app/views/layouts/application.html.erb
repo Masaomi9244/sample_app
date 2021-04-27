@@ -13,20 +13,22 @@
   </head>
 
   <body>
-    <header>
-      <% if @current_user %>
-        <%= link_to("ついったー", "/posts/index") %>
-      <% end %>
-      <% if @current_user %>
-        <%= link_to("投稿一覧", "/posts/index") %>
-        <%= link_to("新規投稿", "/posts/new") %>
-        <%= link_to("ユーザ一覧", "/users/index") %>
-        <%= link_to(@current_user.name, "/users/#{@current_user.id}/show") %>
-        <%= link_to("ログアウト", "/logout",{method: "post"}) %>
-      <% end %>
-    </header>
+    <% if @current_user %>
+      <header>
+        <div id="header">    
+          <ul>      
+              <li class="header-link"><%= link_to("ついったー", "/posts/index", class:"text") %></li>
+              <li class="header-link"><%= link_to("新規投稿", "/posts/new", class:"text") %></li>
+              <li class="header-link"><%= link_to("投稿一覧", "/posts/index", class:"text") %></li>
+              <li class="header-link"><%= link_to("ユーザ一覧", "/users/index", class:"text") %></li>
+              <li class="header-link"><%= link_to(@current_user.name, "/users/#{@current_user.id}/show", class:"text") %></li>
+              <li class="header-link"><%= link_to("ログアウト", "/logout", class:"text", method: "post") %></li>
+          </ul>
+        </div>
+      </header>
+    <% end %>
     <% if flash[:notice] %>
-      <div><%= flash[:notice] %></div>
+      <div class=""><%= flash[:notice] %></div>
     <% end %>
     <%= yield %>
   </body>
