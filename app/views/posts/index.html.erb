@@ -1,4 +1,28 @@
-<h2>投稿一覧</h2>
-<% @posts.each do |post| %>
-    <div><%= link_to(post.content, "/posts/#{post.id}") %></div>
-<% end %>
+<div class="post-index-wrapper">
+    <div class="title">投稿一覧</div>
+    <div class="post-content">
+        <ul> 
+            <% @posts.each do |post| %>
+                <li class="post-items">
+                    <% if post.user != nil %>
+                        <div><%= post.user.name %></div>
+                    <% else %>
+                        <div>削除されたユーザの投稿です。</div>
+                    <% end %>    
+                    <div><%= link_to(post.content, "/posts/#{post.id}",class:"post-item") %></div>
+                    <% if Like.find_by(user_id: @current_user.id, post_id: post.id) %>
+                        <%= link_to("/likes/#{post.id}/destroy", {method: "post"}) do %>
+                            <span class="fa fa-heart liked"></span>
+                            <%= post.likes.count %>
+                        <% end %>
+                    <% else %>
+                        <%= link_to("/likes/#{post.id}/create", {method: "post"}) do %>
+                            <span class="fa fa-heart not-liked"></span>
+                            <%= post.likes.count %>
+                        <% end %>
+                    <% end %>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+<div>
