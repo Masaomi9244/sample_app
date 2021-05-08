@@ -9,6 +9,7 @@
   color: #8899a6;
 }
 
+// -------------------投稿一覧画面-----------------------------------
 .post-index-wrapper .title {
   font-size: 2.5rem;
   font-weight: bolder;
@@ -39,4 +40,35 @@
   text-decoration: none;
   color: black;
   text-align: left;
+}
+
+// -------------------新規投稿画面-----------------------------------
+.title {
+  font-size: 2.5rem;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+}
+
+.post-btn-container {
+  margin-top: 3rem;
+  margin-left: 0.9rem;
+}
+
+.post-btn {
+  padding-top: 0.8rem !important;
+  padding-bottom: 0.8rem !important;
+  padding-left: 7.8rem !important;
+  padding-right: 7.8rem !important;
+  border-radius: 1.8rem !important;
+}
+
+.post-textarea-container {
+  margin-left: 0.9rem;
+}
+
+textarea{
+  resize: none !important;
+  width: 18rem;
+  height: 10rem;
 }
