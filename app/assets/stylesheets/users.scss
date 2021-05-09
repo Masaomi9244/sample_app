@@ -111,3 +111,28 @@ input {
   font-size: 1.2rem;
   font-weight: bold;
 }
+
+//ーーーーーーーーーーーーーーーーーーユーザ一覧画面ーーーーーーーーーーーーーーーーーーーーー
+.user-content {
+  display: flex;
+  justify-content: center;
+}
+
+.user-content ul {
+  list-style: none;
+  border: black;
+}
+
+.user-items {
+  border-color: black;
+  margin-bottom: 4px;
+  padding-top:  3rem;
+  padding-bottom: 3rem;
+  padding-right: 8rem;
+  border: 0.3px solid;
+}
+
+.user-item {
+  text-decoration: none;
+  color: black;
+}
