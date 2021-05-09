@@ -1,4 +1,10 @@
-<h2>ユーザ一覧</h2>
-<%  @users.each do |user| %>
-    <div><%= link_to(user.name, "/users/#{user.id}/show") %></div>
-<% end %>
+<h2 class="title">ユーザ一覧</h2>
+<div class="user-content">
+    <ul>
+        <% @users.each do |user| %>
+            <li class="user-items">
+                <div><%= link_to(user.name, "/users/#{user.id}/show", class:"user-item") %></div>
+            </li>
+        <% end %>
+    </ul>
+</div>
