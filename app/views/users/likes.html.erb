@@ -1,16 +1,28 @@
-<h2><%= "#{@user.name}さんの詳細ページ" %></h2>
-<div><%= "ユーザ名:#{@user.name}" %></div>
-<div><%= "メールアドレス:#{@user.email}" %></div>
-<ul>
-  <li><%= link_to("投稿", "/users/#{@user.id}/show") %></li>
-  <li><%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>
-</ul>
-<% if @current_user.id == @user.id %>
-  <%= link_to("編集", "/users/#{@user.id}/edit") %>
-  <%= link_to("削除", "/users/#{@user.id}/destroy", {method: "post"}) %>  
-<% end %>
-<p><%= "#{@user.name}のいいね一覧" %></p>
-<% @likes.each do |like| %>
-  <% post = Post.find_by(id: like.post_id) %>  
-  <div><%= post.content %></div>
-<% end %>
+<h2 class="user-show-title"><%= "#{@user.name}さんの詳細ページ" %></h2>
+<div class="user-show-center">
+  <% if @current_user.id == @user.id %>
+    <span class="user-show-span">
+      <%= link_to("ユーザ情報編集","/users/#{@user.id}/edit", class: "user-show-link") %>
+    </span>
+      <%= link_to("ユーザ削除","/users/#{@user.id}/destroy", {method: "post", class: "user-show-link"}) %>
+  <% end %>
+</div>
+  <div class="user-info-container">
+    <div class="user-show-center"><%= "ユーザ名: #{@user.name}" %></div>
+    <div class="user-show-center"><%= "メールアドレス: #{@user.email}" %></div>
+  </div>
+<div class="user-show-center">
+  <span class="user-show-span"><%= link_to("投稿一覧", "/users/#{@user.id}/show", class: "user-show-link") %></span>
+  <%= link_to("いいね!一覧", "/users/#{@user.id}/likes", class: "user-show-link") %>
+</div>
+<div class="user-show-center"><%= "#{@user.name}さんのいいね！一覧" %></div>
+<div class="user-show-center">
+  <ul>
+    <li>
+      <% @likes.each do |like| %>
+        <% post = Post.find_by(id: like.post_id) %>
+          <div class="user-show-items"><%= post.content %></div>
+        <% end %>
+    </li>
+  </ul>
+</div>
