@@ -136,3 +136,46 @@ input {
   text-decoration: none;
   color: black;
 }
+
+//ーーーーーーーーーーーーーーーーーーユーザ詳細画面ーーーーーーーーーーーーーーーーーーーーー
+.user-show-title {
+  font-size: 2.5rem;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  margin-top: 7rem;
+  margin-right: 2.7rem;
+}
+
+.user-show-center {
+  display: flex;
+  justify-content: center;
+}
+
+.user-info-container {
+  margin-bottom: 3rem;
+}
+
+.user-show-span {
+  margin-right: 3rem;
+}
+
+.user-show-link {
+  text-decoration: none;
+  color: gray;
+}
+
+.user-show-center ul {
+  list-style: none;
+  border: black;
+}
+
+.user-show-items {
+  border-color: black;
+  margin-bottom: 4px;
+  margin-right: 1.7rem;
+  padding-top:  3rem;
+  padding-bottom: 3rem;
+  padding-right: 8rem;
+  border: 0.3px solid;
+}
