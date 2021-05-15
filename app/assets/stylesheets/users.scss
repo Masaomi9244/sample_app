@@ -137,6 +137,11 @@ input {
   color: black;
 }
 
+.index-image-size {
+  width: 30px;
+  height: 30px;
+}
+
 //ーーーーーーーーーーーーーーーーーーユーザ詳細画面ーーーーーーーーーーーーーーーーーーーーー
 .user-show-title {
   font-size: 2.5rem;
@@ -178,6 +183,11 @@ input {
   padding-bottom: 3rem;
   padding-right: 8rem;
   border: 0.3px solid;
+}
+
+.show-image-size {
+  width: 125px;
+  height: 125px;
 }
 
 //ーーーーーーーーーーーーーーーーーー新規登録画面ーーーーーーーーーーーーーーーーーーーーー

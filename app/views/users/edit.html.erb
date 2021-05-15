@@ -1,6 +1,6 @@
 <h2 class="edit-title">ユーザー編集画面</h2>
 <div class="edit-form-wrapper">
-    <%= form_tag("/users/#{@user.id}/update") do %>
+    <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
         <div class="edit-form-container">
             <div class="edit-center edit-name-label">ユーザ名</div>
             <div class="edit-center edit-input-form">
@@ -11,6 +11,12 @@
             <div class="edit-center edit-mail-label">メールアドレス</div>
             <div class="edit-center edit-input-form">
                 <input type="text" name="email" value="<%= @user.email %>">
+            </div>
+        </div>
+        <div class="edit-form-container">
+            <div class="edit-center edit-mail-label">プロフィール画像</div>
+            <div class="edit-center edit-input-form">
+                <input type="file" name="image"}>
             </div>
         </div>
         <div class="edit-form-container">
