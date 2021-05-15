@@ -63,7 +63,7 @@ class UsersController < ApplicationController
         @user.save
 
         flash[:notice] = "ユーザを削除しました"
-        redirect_to("/users/index")
+        redirect_to("/")
     end
 
     def likes
@@ -92,6 +92,6 @@ class UsersController < ApplicationController
         session[:user_id] = nil
         flash[:notice] = "ログアウトしました"
 
-        redirect_to("/login")
+        redirect_to("/")
     end
 end
