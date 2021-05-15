@@ -1,5 +1,8 @@
 <h2 class="user-show-title"><%= "#{@user.name}さんの詳細ページ" %></h2>
 <div class="user-show-center">
+  <img src=<%= "/user-images/#{@user.image_name}" %> class="show-image-size">
+</div>
+<div class="user-show-center">
   <% if @current_user.id == @user.id %>
     <span class="user-show-span">
       <%= link_to("ユーザ情報編集","/users/#{@user.id}/edit", class: "user-show-link") %>

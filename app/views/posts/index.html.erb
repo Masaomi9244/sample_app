@@ -5,7 +5,8 @@
             <% @posts.each do |post| %>
                 <li class="post-items">
                     <% if post.user != nil %>
-                        <div><%= post.user.name %></div>
+                        <img src=<%= "/user-images/#{post.user.image_name}"%> class="index-image-size">
+                        <%= post.user.name %>
                     <% else %>
                         <div>削除されたユーザの投稿です。</div>
                     <% end %>    

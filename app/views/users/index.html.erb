@@ -3,7 +3,8 @@
     <ul>
         <% @users.each do |user| %>
             <li class="user-items">
-                <div><%= link_to(user.name, "/users/#{user.id}/show", class:"user-item") %></div>
+                <img src=<%= "/user-images/#{user.image_name}"%> class="index-image-size">
+                <%= link_to(user.name, "/users/#{user.id}/show", class:"user-item") %>
             </li>
         <% end %>
     </ul>
