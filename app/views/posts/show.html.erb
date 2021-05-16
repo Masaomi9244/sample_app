@@ -1,23 +1,33 @@
-<h2><%= "投稿詳細画面" %></h2>
-<div><%= @post.content %></div>
-<div><%= @post.created_at %></div>
-<% if @user != nil %>
-  <div><%= link_to(@user.name, "/users/#{@user.id}/show") %></div>
-<% else %>
-  <div>この投稿のユーザは削除されました。</div>
-<% end %>
-<% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
-  <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
-    <span class="fa fa-heart liked"></span>
+<h2 class="post-show-title">投稿詳細画面</h2>
+<div class="post-show-center">
+  <li>
+    <% if @user != nil %>
+      <img src=<%= "/user-images/#{@user.image_name}"%> class="index-image-size">
+      <%= @user.name %>
+    <% else %>
+      <div>この投稿のユーザは削除されました。</div>
+    <% end %>
+    <div><%= @post.content %></div>
+    <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+      <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
+        <span class="fa fa-heart liked"></span>
+      <% end %>
+      <%= @likes_count %>
+    <% else %>
+      <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
+        <span class="fa fa-heart not-liked"></span>
+      <% end %>
+      <%= @likes_count %>
+    <% end %>
+  </li>
+</div>
+<div class="post-link-container">
+  <% if @post.user_id == @current_user.id %>
+    <div class="post-show-center">
+      <span class="post-show-span">
+        <%= link_to("編集", "/posts/#{@post.id}/edit", class: "user-show-link") %>
+      </span>
+      <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post", class: "user-show-link"}) %>
+    </div>
   <% end %>
-  <%= @likes_count %>
-<% else %>
-  <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
-    <span class="fa fa-heart not-liked"></span>
-  <% end %>
-  <%= @likes_count %>
-<% end %>
-<% if @post.user_id == @current_user.id %>
-  <div><%= link_to("編集", "/posts/#{@post.id}/edit") %></div>
-  <div><%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %></div>
-<% end %>
+</div>
