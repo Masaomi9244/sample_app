@@ -7,7 +7,7 @@
     <span class="user-show-span">
       <%= link_to("ユーザ情報編集","/users/#{@user.id}/edit", class: "user-show-link") %>
     </span>
-      <%= link_to("ユーザ削除","/users/#{@user.id}/destroy", {method: "post", class: "user-show-link"}) %>
+    <%= link_to("ユーザ削除","/users/#{@user.id}/destroy", {method: "post", class: "user-show-link"}) %>
   <% end %>
 </div>
   <div class="user-info-container">
