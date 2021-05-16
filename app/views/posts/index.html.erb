@@ -1,29 +1,29 @@
 <div class="post-index-wrapper">
-    <div class="title">投稿一覧</div>
-    <div class="post-content">
-        <ul> 
-            <% @posts.each do |post| %>
-                <li class="post-items">
-                    <% if post.user != nil %>
-                        <img src=<%= "/user-images/#{post.user.image_name}"%> class="index-image-size">
-                        <%= post.user.name %>
-                    <% else %>
-                        <div>削除されたユーザの投稿です。</div>
-                    <% end %>    
-                    <div><%= link_to(post.content, "/posts/#{post.id}",class:"post-item") %></div>
-                    <% if Like.find_by(user_id: @current_user.id, post_id: post.id) %>
-                        <%= link_to("/likes/#{post.id}/destroy", {method: "post"}) do %>
-                            <span class="fa fa-heart liked"></span>
-                            <%= post.likes.count %>
-                        <% end %>
-                    <% else %>
-                        <%= link_to("/likes/#{post.id}/create", {method: "post"}) do %>
-                            <span class="fa fa-heart not-liked"></span>
-                            <%= post.likes.count %>
-                        <% end %>
-                    <% end %>
-                </li>
+  <div class="title">投稿一覧</div>
+  <div class="post-content">
+    <ul> 
+      <% @posts.each do |post| %>
+        <li class="post-items">
+          <% if post.user != nil %>
+            <img src=<%= "/user-images/#{post.user.image_name}"%> class="index-image-size">
+            <%= post.user.name %>
+          <% else %>
+            <div>削除されたユーザの投稿です。</div>
+          <% end %>
+          <div><%= link_to(post.content, "/posts/#{post.id}",class:"post-item") %></div>
+          <% if Like.find_by(user_id: @current_user.id, post_id: post.id) %>
+            <%= link_to("/likes/#{post.id}/destroy", {method: "post"}) do %>
+              <span class="fa fa-heart liked"></span>
+              <%= post.likes.count %>
             <% end %>
-        </ul>
-    </div>
+          <% else %>
+            <%= link_to("/likes/#{post.id}/create", {method: "post"}) do %>
+              <span class="fa fa-heart not-liked"></span>
+              <%= post.likes.count %>
+            <% end %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 <div>
