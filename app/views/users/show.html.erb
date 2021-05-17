@@ -23,7 +23,9 @@
   <ul>
     <li>
       <% @user.posts.each do |post| %>
-        <div class="user-show-items"><%= post.content %></div>
+        <div class="user-show-items">
+          <%= link_to(post.content, "/posts/#{post.id}", class: "user-show-item") %>
+        </div>
       <% end %>
     </li>
   </ul>
